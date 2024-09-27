@@ -35,7 +35,7 @@ public class MyGlobalException{
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<GenericError> myMethodArgumentNotValidException(HttpMessageNotReadableException e){
+    public ResponseEntity<GenericError> myHttpMessageNotReadableException(HttpMessageNotReadableException e){
 //        Map<String, String> response = new HashMap<>();
 //        e.getBindingResult().getAllErrors().forEach(err -> {
 //            String fieldName = ((FieldError)err).getField();

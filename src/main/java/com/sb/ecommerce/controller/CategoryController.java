@@ -1,5 +1,6 @@
 package com.sb.ecommerce.controller;
 
+import com.sb.ecommerce.dto.CategoryResponse;
 import com.sb.ecommerce.model.Category;
 import com.sb.ecommerce.service.CategoryService;
 
@@ -25,13 +26,14 @@ public class CategoryController {
     }
 
     @GetMapping(path = "/public/categories")
-    public List<Category> getCategories() {
-        return categoryService.findAll();
+    public ResponseEntity<CategoryResponse> getCategories() {
+      CategoryResponse categoryResponse = categoryService.getAllcategory();
+        return new ResponseEntity<CategoryResponse>(categoryResponse, HttpStatus.OK);
     }
 
     @PostMapping(path = "/public/categories")
     public ResponseEntity<String> addCategory(@Valid @RequestBody Category category) {
         categoryService.save(category);
-        return new ResponseEntity<String>(category.toString(),HttpStatus.BAD_REQUEST );
+        return new ResponseEntity<String>(category.toString(),HttpStatus.CREATED );
     }
 }
