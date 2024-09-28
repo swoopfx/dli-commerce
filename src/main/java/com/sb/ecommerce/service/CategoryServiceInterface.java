@@ -1,13 +1,13 @@
 package com.sb.ecommerce.service;
 
+import com.sb.ecommerce.dto.CategoryDto;
 import com.sb.ecommerce.dto.CategoryResponse;
-import com.sb.ecommerce.model.Category;
-
-import java.util.List;
 
 public interface CategoryServiceInterface {
 
 
-    CategoryResponse getAllcategory();
-    void save(Category category);
+    CategoryResponse getAllcategory(Integer pageNumber, Integer limit);
+//    void save(Category category);
+     CategoryDto createCategory(CategoryDto category);
+     CategoryDto updateCategory(CategoryDto categoryDto, Long categoryId);
 }
